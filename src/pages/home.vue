@@ -11,11 +11,14 @@
     </div>-->
     <Head></Head>
     <fm-making-form :data="jsonData"
+                    generate-code
                     :remote="remoteFuncs"
                     :value="values"
                     ref="generateForm">
       <template slot="action">
-        <div @click="getHtml" class="get">getHtml</div>
+        <span @click="getHtml" class="get">getHtml</span>
+        <span @click="getJSON" class="get">getJSON</span>
+        <span @click="getData" class="get">getData</span>
       </template>
     </fm-making-form>
   </div>
@@ -24,9 +27,9 @@
   .home {
     width:100%;
     height:100%;
-    display:flex;
-    flex-flow: column;
-    .menu{
+    /*display:flex;*/
+    /*flex-flow: column;*/
+    /*.menu{
       width:20%;
       height:100%;
       display:flex;
@@ -42,15 +45,15 @@
     }
     .content{
       width:50%;
-      height:100%;
+      !*height:100%;*!
       border-right:1px solid #17A6B5;
       padding:0 10px;
     }
     .operation{
       width:30%;
-      height:100%;
-      /*background-color: #0B0B0B;*/
-    }
+      !*height:100%;*!
+      !*background-color: #0B0B0B;*!
+    }*/
   }
 </style>
 <script>
@@ -84,10 +87,19 @@ export default {
     }
   },
   methods: {
-    getHtml (e) {
-      console.log(this.$refs.generateForm.widgetForm)
-
-      this.$refs.generateForm.getHtml().then(data => {
+    getHtml (data, on) {
+      // 同步调用
+      let html = this.$refs.generateForm.getHtml()
+      console.log(html)
+    },
+    getJSON () {
+      // 同步调用
+      let json = this.$refs.generateForm.getJSON()
+      console.log(json, this.jsonData)
+    },
+    getData () {
+      // 异步调用
+      this.$refs.generateForm.getData().then(data => {
         // 数据校验成功
         // data 为获取的表单数据
         console.log(data)
