@@ -16,9 +16,9 @@
                     :value="values"
                     ref="generateForm">
       <template slot="action">
-        <span @click="getHtml" class="get">getHtml</span>
+        <!--<span @click="getHtml" class="get">getHtml</span>-->
         <span @click="getJSON" class="get">getJSON</span>
-        <span @click="getData" class="get">getData</span>
+        <!--<span @click="getData" class="get">getData</span>-->
       </template>
     </fm-making-form>
   </div>
@@ -95,7 +95,13 @@ export default {
     getJSON () {
       // 同步调用
       let json = this.$refs.generateForm.getJSON()
-      console.log(json, this.jsonData)
+      // console.log(json, this.jsonData)
+      this.$router.push({
+        name: 'test',
+        params: {
+          data: json
+        }
+      })
     },
     getData () {
       // 异步调用

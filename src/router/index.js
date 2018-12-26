@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Home from '@/pages/home'
+import test from '@/pages/test'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import FormMaking from 'form-making'
@@ -17,6 +18,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
     }
   ]
 })
