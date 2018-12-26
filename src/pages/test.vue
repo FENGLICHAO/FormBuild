@@ -22,6 +22,7 @@
       this.$refs.generateForm.getData().then(data => {
         // 数据校验成功
         // data 为获取的表单数据
+        console.log(data)
       }).catch(e => {
         // 数据校验失败
       })

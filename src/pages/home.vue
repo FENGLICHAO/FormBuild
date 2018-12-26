@@ -95,7 +95,7 @@ export default {
     getJSON () {
       // 同步调用
       let json = this.$refs.generateForm.getJSON()
-      // console.log(json, this.jsonData)
+      console.log(json, this.jsonData)
       this.$router.push({
         name: 'test',
         params: {
